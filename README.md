@@ -1,4 +1,4 @@
-# pcCMSA-ES
+# pcCMSA-ES using linear regression analysis
 
 REFERENCE: 
 Hellwig, Michael; Beyer, Hans-Georg, "Evolution under Strong Noise: A Self-Adaptive Evolution Strategy Can Reach the Lower Performance Bound - the pcCMSA-ES", J. Handl et al. (Ed.): Parallel Problems Solving from Nature - PPSN XIV, pp. 26-37, Edinburgh Napier University, Edinburgh, Scotland, UK, Springer, 2016.
