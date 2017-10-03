@@ -1,6 +1,6 @@
 %% Implementation of the MANN-KENDALL Test for negative trend
 %
-% The original non-parametric Mann-Kendall test for identification of significant
+% The non-parametric Mann-Kendall test for identification of significant
 % downward montonic trend.
 %
 % null hypothesis --  H0: no monotonic trend within the time series
