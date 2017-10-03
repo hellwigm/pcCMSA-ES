@@ -46,5 +46,5 @@ input.alpha           = 0.05;			% hypothesis test reliabililty
 lr_dyn       = dyn;
 lr_dyn.y_opt = y_opt;
  
-filename=['pcCMSAlr_N' num2str(input.n) 'ai'num2str(input.exp) 'Lsuma.mat'']
+filename=['pcCMSAlr_N' num2str(input.n) 'ai' num2str(input.exp) 'Lsuma.mat']
 save(filename,'lr_dyn','input','-v7')
