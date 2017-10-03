@@ -111,7 +111,7 @@ function [fnoisy, y_opt, dyn]=pcCMSAES(fname,dname,input)
              % having waited for wait generations and considering a 
 	     %history of at least L data points check for negative trend 
 	     	if isequal(dname,'linRegression')
-        		H = LinearRegNegativTrend( dyn.noisyf(g-input.L:g), input.alpha);
+        		H = LinearRegNegativeTrend( dyn.noisyf(g-input.L:g), input.alpha);
 		elseif isequal(dname,'MannKendall')
 			H = MannKendallNegativeTrend( dyn.noisyf(g-input.L:g), input.alpha);
 		else
