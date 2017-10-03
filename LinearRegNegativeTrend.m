@@ -19,7 +19,7 @@
 %		H = 0	- otherwise 
 %
 
-function H = LinearRegNegativTrend(f, alpha)
+function H = LinearRegNegativeTrend(f, alpha)
   n = length(f); 				% length of fitness sequence
   f_mean = mean(f);				% sample mean value of the observations
   x = (1:n);					%
