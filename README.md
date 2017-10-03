@@ -12,8 +12,9 @@ The pcCMSA-ES is based on the well-known Covariance Matrix Self-Adaptation Evolu
  . non-negative slope w.r.t significance level \alpha  --> increase population size
 
 4. BRANCH CONTENT:
-   ... EllipsoidModel.m          -- Test function defining the fitness environment referred to as the Ellipsoid model
-   ... pcCMSAESlr.m              -- Main compponent of the pcCMSA-ES algorithm using Linear Regression Analysis for noise detection
-   ... LinearRegNegativeTrend.m  -- Detection mechanism making use of the linear regression line's estimated slope and a corresponding hypothesis test
-   ... RankPop.m                 -- Ranking Procedure
-   ... sample_Experiment.m       -- Executable for sample pCCMSA-ES runs
+
+⋅⋅⋅ EllipsoidModel.m      -- Test function defining the fitness environment referred to as the Ellipsoid model ⋅⋅
+⋅⋅⋅ pcCMSAESlr.m          -- Main compponent of the pcCMSA-ES algorithm using Linear Regression Analysis for noise detection
+⋅⋅⋅ LinearRegNegativeTrend.m -- Detection mechanism making use of the linear regression line's estimated slope and a corresponding hypothesis test
+⋅⋅⋅ RankPop.m                 -- Ranking Procedure
+⋅⋅⋅ sample_Experiment.m       -- Executable for sample pCCMSA-ES runs
