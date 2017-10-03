@@ -23,8 +23,8 @@ input.exp	      =	0; 				% exp=0 - Sphere model,
 input.coeffs          = linspace(1,input.n,input.n)'.^input.exp
 input.ordering        = 'ascend'; 	% Minimization
 
-input.noise_model     = 'noise-free';	% Noise model specification
-% input.noise_model     = 'additive';	
+%input.noise_model     = 'noise-free';	% Noise model specification
+ input.noise_model     = 'additive';	
 % input.noise_model     = 'f-proportional';	
 % input.noise_model     = 'actuator';	
 
