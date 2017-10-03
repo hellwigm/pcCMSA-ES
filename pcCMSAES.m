@@ -34,7 +34,7 @@
 %		dyn 	- struct array of the pcCMSA-ES dynamics	
 %
 
-function [fnoisy, y_opt, dyn]=pcCMSAESlr(fname,dname,input)
+function [fnoisy, y_opt, dyn]=pcCMSAES(fname,dname,input)
 
     % initialization:
     Parent.sigma   = input.sigma;	% initial step-size
