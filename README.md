@@ -10,7 +10,6 @@ The pcCMSA-ES code is made available for reproduction of reported results and te
 The pcCMSA-ES is based on the well-known Covariance Matrix Self-Adaptation Evolution Strategy (CMSA-ES). Incorporating a rather simple population control mechanism togehter with an appropriate noise detection method, the population control Covariance Matrix Self-Adaptation Evolution Strategy (pcCMSA-ES) is able to successfully deal with noisy optimization problems. The noise detection mechanism is based on applying linear regression analysis to a sequence of observed noisy objective function values. The slope of the estimated regression line governs the population control.Constructing a test statistic allows for the design of a hypothesis test that provides the decline requirement. 
   * negative slope w.r.t significance level \alpha      --> reduce population size 
   * non-negative slope w.r.t significance level \alpha  --> increase population size
-
 4. ### File description:
   * EllipsoidModel.m      - Test function defining the fitness environment referred to as the Ellipsoid model 
   * pcCMSAESlr.m          - Main compponent of the pcCMSA-ES algorithm using Linear Regression Analysis for noise detection
