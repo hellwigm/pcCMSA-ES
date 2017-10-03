@@ -26,13 +26,15 @@
 % INPUT: 	input 	- struct array of strategy parameters 
 %			  and initial search space location 
 %		fname 	- name of the objective function to be optimized
+%		dname   - name of the noise detection mechanism 
+%			  (linRegression, or MannKendall, respectively)
 %
 % OUTPUT:	fnoisy	- final observed fitness value
 %		y_opt   - optimizer (final candidate solution)
 %		dyn 	- struct array of the pcCMSA-ES dynamics	
 %
 
-function [fnoisy, y_opt, dyn]=pcCMSAESlr(fname,input)
+function [fnoisy, y_opt, dyn]=pcCMSAESlr(fname,dname,input)
 
     % initialization:
     Parent.sigma   = input.sigma;	% initial step-size
@@ -100,8 +102,7 @@ function [fnoisy, y_opt, dyn]=pcCMSAESlr(fname,input)
         dyn.condC(g)        = cond(C);
         
 	% termination condition
-        if ( Parent.sigma < input.sigma_stop || g > input.g_stop ...
-         || fevals >= input.fevals_max )
+        if ( Parent.sigma < input.sigma_stop || g > input.g_stop || fevals >= input.fevals_max )
           break;
         end
 	% noise detection and population control
@@ -109,7 +110,13 @@ function [fnoisy, y_opt, dyn]=pcCMSAESlr(fname,input)
              if (wait == 0 )			% lead time expired?
              % having waited for wait generations and considering a 
 	     %history of at least L data points check for negative trend 
-        	H = LinearRegNegativTrend( dyn.noisyf(g-input.L:g), input.alpha);
+	     	if isequal(dname,'linRegression')
+        		H = LinearRegNegativTrend( dyn.noisyf(g-input.L:g), input.alpha);
+		elseif isequal(dname,'MannKendall')
+			H = MannKendallNegativeTrend( dyn.noisyf(g-input.L:g), input.alpha);
+		else
+		 	disp('WARNING: The detection machanism was not specified correctly.')
+		end
                 if ( H )		% negative trend identified 
                     if ( mu > mu_min )	% reduce population size (lower bounded by mu_min)
             		mu   = max( mu_min, floor(mu/input.b_mu) );
