@@ -1,4 +1,4 @@
-%% Implementation of the MANN-KENDALL Test 
+%% Implementation of the MANN-KENDALL Test for negative trend
 %
 % The original non-parametric Mann-Kendall test for identification of significant
 % downward montonic trend.
@@ -31,7 +31,7 @@
 %	Kendall, M. G., Rank Correlation Methods, Griffin, London, 1975.
 %	Gilbert, R.O., Statistical Methods for Environmental Pollution Monitoring, Wiley, NY, 1987.
 
-function [H]=MannKendallTrend(x,alpha)
+function [H]=MannKendallNegativeTrend(x,alpha)
     % number of time series entries
     n=length(x);
     if n <= 10
