@@ -20,7 +20,7 @@
 4. ### File description:  
 
   * __EllipsoidModel.m__      - Test function defining the fitness environment referred to as the Ellipsoid model 
-  * __pcCMSAESlr.m__          - Main component of the pcCMSA-ES algorithm using Linear Regression Analysis for noise detection
+  * __pcCMSAESlr.m__          - Main component of the pcCMSA-ES algorithm relying on either Linear Regression Analysis or the Mann Kendall Test for noise detection
   * __LinearRegNegativeTrend.m__ - Trend estimation making use of the linear regression line's slope and a corresponding hypothesis test
   * __MannKendallNegativeTrend.m__ - Alternative non-parametric trend estimation: The Mann-Kendall test for identification of significant downward montonic trend.
   * __RankPop.m__                 - Ranking Procedure
