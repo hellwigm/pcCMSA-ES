@@ -23,14 +23,16 @@ input.exp	      =	0; 				% exp=0 - Sphere model,
 input.coeffs          = linspace(1,input.n,input.n)'.^input.exp
 input.ordering        = 'ascend'; 	% Minimization
 
-%input.noise_model     = 'noise-free';	% Noise model specification
- input.noise_model     = 'additive';	
+% input.noise_model     = 'noise-free';	% Noise model specification
+input.noise_model     = 'additive';	
 % input.noise_model     = 'f-proportional';	
 % input.noise_model     = 'actuator';	
 
-input.noise_strength  = 1;		% Noise model specific (normalized) noise strength
+input.noise_strength  = 1;		 % Noise model specific (normalized) noise strength
 
-if input.exp == 0			% Problem specific lead time of the pcCMSA-ES
+input.dname	      = 'linRegression'; % noise detection method used by the pcCMSA-ES
+
+if input.exp == 0			 % Problem specific lead time of the pcCMSA-ES
 	input.L       = 5*input.n;
 else
 	input.L       = sum(input.coeffs); 	
@@ -39,7 +41,7 @@ end
 input.alpha           = 0.05;			% hypothesis test reliabililty
 
 % Single run  of the pcCMSA-ES algorithm
-[fnoisy, y_opt, dyn]  = pcCMSAESlr(input.fname,input); 
+[fnoisy, y_opt, dyn]  = pcCMSAES(input.fname,input.dname,input); 
 
 lr_dyn       = dyn;
 lr_dyn.y_opt = y_opt;
