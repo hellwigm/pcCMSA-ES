@@ -11,8 +11,11 @@
 3. ### The pcCMSA-ES:  
 
    The pcCMSA-ES is based on the well-known Covariance Matrix Self-Adaptation Evolution Strategy (CMSA-ES). Incorporating a rather simple population control mechanism togehter with an appropriate noise detection method, the population control Covariance Matrix Self-Adaptation Evolution Strategy (pcCMSA-ES) is able to successfully deal with noisy optimization problems. The noise detection mechanism is based on applying linear regression analysis to a sequence of observed noisy objective function values. The slope of the estimated regression line governs the population control.Constructing a test statistic allows for the design of a hypothesis test that provides the decline requirement.  
+   
    negative slope w.r.t significance level \alpha      --> reduce population size  
    non-negative slope w.r.t significance level \alpha  --> increase population size
+   
+   Notice, that representing a parametric approach, the use of linear regression analysis is only appropriate for additive normally distributed fitness noise disturbances. In order to tackle different forms of noise, the pcCMSA-ES may be equipped with a non-parametric noise detection method (e.g. maiking use of the Mann-Kendall test). In such cases the noise detection procedure __LinearRegNegativetrend.m__ may simply be repalced with __MannKendall.m__. 
    
 4. ### File description:  
 
