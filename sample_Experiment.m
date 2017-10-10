@@ -45,5 +45,5 @@ input.alpha           = 0.05;			% hypothesis test reliabililty
 
 y_opt
 noisy_f
-ideal_f=EllipsoidModel(y_opt,input.coeffs,0,input.noise_model)
+ideal_f=EllipsoidModel(y_opt,input.coeffs,input.noise_strength,'noise_free')
 final_popsize=dyn.lambda(end)
