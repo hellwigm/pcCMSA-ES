@@ -17,14 +17,14 @@ input.sigma_stop      =1e-20;
 input.fevals_max      =1e+8;
 
 input.fname           = 'EllipsoidModel';		% objective function name
-input.exp	      =	0; 				% exp=0 - Sphere model, 
+input.exp	      =	1; 				% exp=0 - Sphere model, 
 							% exp=1 - Ellipsoid model a_i=i
 							% exp=2 - Ellipsoid model a_i=i^2
 input.coeffs          = linspace(1,input.n,input.n)'.^input.exp
 input.ordering        = 'ascend'; 	% Minimization
 
 % input.noise_model     = 'noise-free';	% Noise model specification
-input.noise_model     = 'additive';	
+input.noise_model     	= 'additive';	
 % input.noise_model     = 'f-proportional';	
 % input.noise_model     = 'actuator';	
 
@@ -41,10 +41,9 @@ end
 input.alpha           = 0.05;			% hypothesis test reliabililty
 
 % Single run  of the pcCMSA-ES algorithm
-[fnoisy, y_opt, dyn]  = pcCMSAES(input.fname,input.dname,input); 
+[noisy_f, y_opt, dyn]  = pcCMSAES(input.fname,input.dname,input); 
 
-lr_dyn       = dyn;
-lr_dyn.y_opt = y_opt;
- 
-filename=['pcCMSAlr_N' num2str(input.n) 'ai' num2str(input.exp) 'Lsuma.mat']
-save(filename,'lr_dyn','input','-v7')
+y_opt
+noisy_f
+ideal_f=EllipsoidModel(y_opt,input.coeffs,0,input.noise_model)
+final_popsize=dyn.lambda(end)
