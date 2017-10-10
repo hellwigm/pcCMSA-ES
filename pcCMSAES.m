@@ -61,6 +61,7 @@ function [fnoisy, y_opt, dyn]=pcCMSAES(fname,dname,input)
     dyn.condC      =[];		% condition number of C
     dyn.fevals     =0;
     
+    fevals	   =0;    
     while(1) 
         lambda         = floor(mu/input.theta);	% offspring population size increases 
 						% with mu (fixed truncation ratio theta <1)
@@ -96,7 +97,7 @@ function [fnoisy, y_opt, dyn]=pcCMSAES(fname,dname,input)
         dyn.noisyf(g)       = Parent.f;
         dyn.sigma(g)        = Parent.sigma;
         dyn.y(:, g)         = Parent.y;
-        dyn.fevals          = fevals + lambda;
+        fevals   	    = fevals + lambda +1;
         dyn.fev(g)          = fevals;
         dyn.lambda(g)       = lambda;
         dyn.condC(g)        = cond(C);
@@ -115,7 +116,7 @@ function [fnoisy, y_opt, dyn]=pcCMSAES(fname,dname,input)
 		elseif isequal(dname,'MannKendall')
 			H = MannKendallNegativeTrend( dyn.noisyf(g-input.L:g), input.alpha);
 		else
-		 	disp('WARNING: The detection machanism was not specified correctly.')
+		 	disp('Note: The detection machanism was not specified correctly.')
 		end
                 if ( H )		% negative trend identified 
                     if ( mu > mu_min )	% reduce population size (lower bounded by mu_min)
