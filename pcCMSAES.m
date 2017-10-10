@@ -136,5 +136,5 @@ function [fnoisy, y_opt, dyn]=pcCMSAES(fname,dname,input)
   end
   % output	
   y_opt = Parent.y;
-  fnoisy = noisy_f_dyn(g);
+  fnoisy = dyn.noisyf(g);
 end
