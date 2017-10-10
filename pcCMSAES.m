@@ -85,7 +85,7 @@ function [fnoisy, y_opt, dyn]=pcCMSAES(fname,dname,input)
         Parent.s    = sum_s./mu;
         Parent.y    = sum_y./mu;
         Parent.f    = feval(fname, Parent.y, a, sigma_eps, noise_type);       % centroid evaluation 
-        f_noisefree = feval(fname, Parent.y, a, sigma_eps, noise_free);       % ideal fitness
+        f_noisefree = feval(fname, Parent.y, a, sigma_eps, 'noise_free');       % ideal fitness
 
         % covariance matrix rank-1 update
         C           =(1-1/input.tauc).^adjC.*C ...
