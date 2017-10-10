@@ -20,7 +20,7 @@
 %		coeffs  	- column vector of positive coefficients
 %				  (usually proportional to the i-th component of x)
 %		noise_strength  - standard deviation of the modeled noise
-%		noise_type      - string: 'noise-free','additive','f-propotional', or 'actuator'
+%		noise_type      - string: 'noise_free','additive','f-propotional', or 'actuator'
 % 
 % OUTPUT: 	fit 		- the observed noisy fitness value 
 %
