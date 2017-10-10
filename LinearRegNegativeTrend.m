@@ -11,7 +11,7 @@
 % on the time series y is NOT evident.
 % 
 % INPUT:	f 	- sequence of measured noisy fitness values
-			  (time series)
+%			  (time series)
 %		alpha 	- significance level of the hypothesis test
 %
 % OUTPUT:	H = 1	- there is a negative trend with 
