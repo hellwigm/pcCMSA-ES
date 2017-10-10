@@ -59,9 +59,8 @@ function [fnoisy, y_opt, dyn]=pcCMSAES(fname,dname,input)
     dyn.fev        =[];		% number of function evaluations
     dyn.lambda     =[];		% offspring population size
     dyn.condC      =[];		% condition number of C
-    dyn.fevals     =0;
-    
     fevals	   =0;    
+    
     while(1) 
         lambda         = floor(mu/input.theta);	% offspring population size increases 
 						% with mu (fixed truncation ratio theta <1)
