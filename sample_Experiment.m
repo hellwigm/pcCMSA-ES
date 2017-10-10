@@ -47,3 +47,4 @@ y_opt
 noisy_f
 ideal_f=EllipsoidModel(y_opt,input.coeffs,input.noise_strength,'noise_free')
 final_popsize=dyn.lambda(end)
+plot_ExpDynamics
