@@ -26,7 +26,7 @@
 %
 
 function [fit]=EllipsoidModel(x,coeffs,noise_strength,noise_type)
-    if isempty(noise_type) || noise_type == 'noise_free'
+    if isempty(noise_type) || isequal(noise_type,'noise_free')
 	% noise-free ellipsoid model
 	if isempty(noise_type)
 		disp('Warning: Specify appropriate noise model.')
@@ -34,23 +34,21 @@ function [fit]=EllipsoidModel(x,coeffs,noise_strength,noise_type)
 	end
 	xq      =x.^2;
 	fit     =coeffs'*xq;
-    elseif noise_type=='additive'
+    elseif isequal(noise_type,'additive')
 	% additve Gaussian fitness noise
 	xq      =x.^2;
     	fit     =coeffs'*xq + noise_strength*randn(1);
-    elseif noise_type=='f-proportional' 
+    elseif isequal(noise_type,'f-proportional')
 	% fitness proportional noise
 	% Note: The parameter 'noise_strength' specifies the 
 	%	fixed NORMALIZED noise strength in this scenario.
 	suma    =sum(coeffs);
     	sumay   =sum(coeffs.^2.*xq);
         fit     =coeffs'*xq + noise_strength*2*sumay/suma*randn(1);
-    elseif noise_type=='actuator'
+    else isequal(noise_type,'actuator')
 	% Gaussian actuator noise
 	n       =length(x);
 	xq      =(x+ noise_strength.*randn(n,1)).^2;
     	fit     =coeffs'*xq;
-    else 
-	disp('Ups: Something went wrong!')	
     end
 end
