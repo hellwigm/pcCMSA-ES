@@ -42,8 +42,8 @@ loglog(dyn.fev,dyn.lambda,'b','LineWidth',1);
     title([input.fname ' b_i=i^' num2str(input.exp) ', N=' num2str(input.n) ', L=' num2str(input.L) ', \sigma_\epsilon=' num2str(input.noise_strength)])
     
     
-p3=figure;
-axes('Parent',p3,'Position',[0.15 0.13 0.75 0.70],'LineWidth',2,'FontSize',16);
+p4=figure;
+axes('Parent',p4,'Position',[0.15 0.13 0.75 0.70],'LineWidth',2,'FontSize',16);
 set(gcf,'color','w');
 set(gcf,'position',[1 600 800 600]);  
 loglog(dyn.fev,dyn.condC,'b','LineWidth',1);
